@@ -150,3 +150,38 @@
     background-color: var(--caput-mortuum);
   }
   
+
+  .complete-task-btn {
+    background-color: #36B37E; /* Green for completion */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .complete-task-btn:hover {
+    background-color: #2b8e5b; /* Darker green on hover */
+  }
+  
+  .delete-goal-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    font-size: 18px; /* Adjust size */
+    color: #ff4d4d; /* Example color for delete button */
+  }
+  
+  .goal-card {
+    position: relative; /* Ensure positioning context for the delete button */
+    padding: 20px; /* Add some padding */
+    border: 1px solid #ccc; /* Add border for card visibility */
+    margin: 10px; /* Spacing between cards */
+    border-radius: 8px; /* Rounded corners */
+  }
+  

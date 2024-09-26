@@ -40,6 +40,21 @@ const GoalTracker = () => {
     }
   };
 
+  const handleCompleteTask = (goalId) => {
+    const updatedGoals = goals.map((g) => {
+      if (g.id === goalId) {
+        g.completedSubTasks = g.subTasks.length; // Mark all subtasks as complete
+        g.subTasks.forEach(subTask => subTask.isComplete = true); // Mark each subtask as complete
+      }
+      return g;
+    });
+    setGoals(updatedGoals);
+  };
+
+  const handleDeleteGoal = (goalId) => {
+    setGoals(goals.filter(g => g.id !== goalId)); // Remove the goal with the specified id
+  };
+
   const calculateProgress = (goal) => {
     return (goal.completedSubTasks / goal.subTasks.length) * 100 || 0;
   };
@@ -110,6 +125,15 @@ const GoalTracker = () => {
             key={goal.id} 
             className={`goal-card ${getGoalStatus(goal)}`} 
           >
+            {/* Delete Button */}
+            <button 
+              className="delete-goal-btn" 
+              onClick={() => handleDeleteGoal(goal.id)} 
+              title="Delete Goal"
+            >
+              🗑️
+            </button>
+            
             <h3>{goal.title}</h3>
             <p>{goal.description}</p>
             <p>Due Date: {goal.dueDate}</p>
@@ -137,6 +161,13 @@ const GoalTracker = () => {
             <button className="add-subtask-btn" onClick={() => addSubTask(goal.id)}>
               + Add Sub-task
             </button>
+
+            {/* Complete Task Button */}
+            {goal.subTasks.length === 0 && (
+              <button className="complete-task-btn" onClick={() => handleCompleteTask(goal.id)}>
+                Complete Task
+              </button>
+            )}
           </div>
         ))}
       </div>
