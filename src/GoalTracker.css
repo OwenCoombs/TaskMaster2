@@ -1,0 +1,152 @@
+:root {
+    --linen: #f3e9dcff;
+    --caramel: #c08552ff;
+    --caput-mortuum: #5e3023ff;
+    --raw-umber: #895737ff;
+    --desert-sand: #dab49dff;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--linen);
+  }
+  
+  .goal-tracker {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--raw-umber);
+    color: white;
+    border-bottom: 2px solid var(--caramel);
+  }
+  
+  .add-goal-btn {
+    background-color: var(--caramel);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .add-goal-btn:hover {
+    background-color: var(--caput-mortuum);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: var(--linen);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content input, 
+  .modal-content textarea, 
+  .modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--desert-sand);
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    background-color: var(--caramel);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .cancel-btn {
+    background-color: var(--caput-mortuum);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .goal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .goal-card {
+    background-color: var(--desert-sand);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    position: relative;
+  }
+  
+  /* Status color indicators */
+  .goal-card.on-track {
+    border: 2px solid var(--caramel);
+  }
+  
+  .goal-card.overdue {
+    border: 2px solid #ff5630; /* Red for overdue goals */
+  }
+  
+  .goal-card.upcoming {
+    border: 2px solid #36b37e; /* Green for upcoming goals */
+  }
+  
+  .progress-bar {
+    background-color: var(--linen);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin: 10px 0;
+  }
+  
+  .progress {
+    background-color: #36b37e; /* Green progress bar */
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  .add-subtask-btn {
+    background-color: var(--caramel);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-subtask-btn:hover {
+    background-color: var(--caput-mortuum);
+  }
+  
