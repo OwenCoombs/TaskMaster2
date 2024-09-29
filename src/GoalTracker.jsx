@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './GoalTracker.css';
 
 const GoalTracker = () => {
   const [showModal, setShowModal] = useState(false);
   const [goal, setGoal] = useState({ title: '', description: '', dueDate: '', priority: 'Normal', subTasks: [] });
   const [goals, setGoals] = useState([]);
+
+  // Load goals from localStorage on component mount
+  useEffect(() => {
+    const savedGoals = JSON.parse(localStorage.getItem('goals'));
+    if (savedGoals) {
+      setGoals(savedGoals);
+    }
+  }, []);
+
+  // Save goals to localStorage whenever goals change
+  useEffect(() => {
+    localStorage.setItem('goals', JSON.stringify(goals));
+  }, [goals]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -176,3 +189,4 @@ const GoalTracker = () => {
 };
 
 export default GoalTracker;
+
